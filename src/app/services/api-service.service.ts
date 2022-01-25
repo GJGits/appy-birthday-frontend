@@ -1,11 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, ɵresetJitOptions } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ApiServiceService {
+export abstract class ApiServiceService {
 
+  abstract sendVoti(voti: any[]): any;
+  abstract getVoti(): Observable<any[]>;
+
+  /*
   baseURL = "http://127.0.0.1:3000";
   constructor(private http: HttpClient) { }
 
@@ -19,4 +20,5 @@ export class ApiServiceService {
   getVoti() {
     return this.http.get<any[]>(this.baseURL + "/voti");
   }
+  */
 }

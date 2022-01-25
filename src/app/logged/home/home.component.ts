@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     for (let i = 0; i < this.utentiSelezionatiPerVoto.length; i++) {
       voti.push({ name: this.utentiSelezionatiPerVoto[i], game: this.game, score: 1 });
     }
-    this.apiService.sendVoti(voti).subscribe((data) => {
+    this.apiService.sendVoti(voti).subscribe((data: any[]) => {
       this.utentiSelezionatiPerVoto = [];
       this.refreshVoti();
       this.votoAbilitato = false;
