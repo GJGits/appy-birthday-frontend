@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+      <div class="" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+                <img [ngClass]="{'selected-game': game === 'brain'}" (click)="showGame('brain')" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-brain-anatomy-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"/>
+          </li>
+          <li class="nav-item">
+                <img [ngClass]="{'selected-game': game === 'drink'}" (click)="showGame('drink')" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-beer-new-year-kiranshastry-lineal-color-kiranshastry.png"/>
+          </li>
+          <li class="nav-item">
+                <img [ngClass]="{'selected-game': game === 'cards'}" (click)="showGame('cards')" src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/000000/external-cards-arcade-flatart-icons-lineal-color-flatarticons.png"/>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center mt-5">
+    <p>Le regole sono molto semplici, ogni utente pu&ograve; votare tutti gli utenti tranne se stesso. In seguito ad ogni voto l'utente dovr&agrave; aspettare 30 secondi prima di poter votare nuovamente.
+        Per selezionare un utente da votare cliccare sulla sua immagine, per annullare il voto ricliccare. Il voto &egrave; annullabile solo prima di votare.
+      Che vinca il migliore.
+    </p>  
+  </div>
+  
+
+  <div *ngIf="game === 'brain'" class="container" class="row mt-5 mb-5">
+    <div *ngFor="let el of (credenziali | async)" class="text-center col-4">
+      <img [ngClass]="{'selected-game': game === 'brain' && utentiSelezionatiPerVoto.includes(el.name)}" (click)="onClickUtente(el.name)" [src]="el.imgPath" alt="" srcset="" width="50" height="50" class="pic">
+      <div>
+        <p>{{el.name + " " + (el.brain)}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="game === 'drink'" class="container" class="row mt-5">
+    <div *ngFor="let el of (credenziali | async)" class="text-center col-4">
+      <img [src]="el.imgPath" alt="" srcset="" width="50" height="50" class="pic">
+      <div>
+        <p>{{el.name + " " + (el.drink)}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="game === 'cards'" class="container" class="row mt-5">
+    <div *ngFor="let el of (credenziali | async)" class="text-center col-4">
+      <img [src]="el.imgPath" alt="" srcset="" width="50" height="50" class="pic">
+      <div>
+        <p>{{el.name + " "  + (el.cards)}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+     <div class="d-grid gap-2">
+    <button (click)="onVota()" class="btn btn-primary" type="button" [attr.disabled]="votoAbilitato? null : true">Vota</button>
+  </div>  
+  </div>
+ 

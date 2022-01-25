@@ -1,0 +1,13 @@
+<form>
+    <div class="mb-3">
+      <input *ngIf="secret === ''" type="text" class="form-control"  aria-describedby="emailHelp" [placeholder]="inputPlaceholder" name="text" [(ngModel)]="text">
+      <input *ngIf="secret !== ''" type="password" class="form-control"  aria-describedby="emailHelp" [placeholder]="inputPlaceholder" name="text" [(ngModel)]="text">
+    </div>
+    <div class="d-grid gap-2">
+        <button (click)="onClick()" class="btn btn-primary" type="button">Continua</button>
+      </div>
+  </form>
+
+  <div *ngIf="errore !== ''" class="text-center mt-3">
+      <p class="text-danger">{{errore}}</p>
+  </div>

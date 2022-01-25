@@ -1,0 +1,20 @@
+.navbar-nav {
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.container-fluid {
+    display: inline !important;
+}
+
+.selected-game {
+    border-radius: 50%;
+    border-color: #0b5ed7;
+    border-width: 3px;
+    border-style: solid;
+    padding: 4px;
+}
+
+.player-list{
+    display: flex;
+}

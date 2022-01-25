@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="welcome-section col-6 offset-3 text-center">
+      <img src="https://img.icons8.com/color/48/000000/birthday-cake.png" />
+      <p>Benvenuti su AppyBirthday! L'app per festeggiare il Nachos!</p>
+    </div>
+  </div>
+  
+  <div class="container" *ngIf="name === ''">
+    <app-inp-btn (continua)="onContinua($event)" [errore]="nameError" [inputPlaceholder]="'Inserire username fornito al Nacho'"></app-inp-btn>
+  </div>
+  
+  <div class="container" *ngIf="name !== ''">
+    <app-inp-btn  (continua)="onContinua($event)" [errore]="passwordError"  [inputPlaceholder]="'Inserire password fornita al Nacho'" [secret]="'true'"></app-inp-btn>
+  </div>
+  
+  <div class="container text-center mt-5">
+    <h3>Partecipanti</h3>
+  </div>
+  
+  
+  <div class="container" class="row mt-5">
+    <div *ngFor="let el of (credenziali | async)" class="text-center col-4">
+      <img [src]="el.imgPath" alt="" srcset="" width="50" height="50" class="pic">
+      <div>
+        <p>{{el.name}}</p>
+      </div>
+    </div>
+    
+  </div>
+  
