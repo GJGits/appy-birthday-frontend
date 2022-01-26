@@ -1,19 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HTTPBasicResponse } from '../interfaces/http-responses/http-basic-response';
+import { Voto } from '../interfaces/punteggi/voto';
 import { ApiServiceService } from './api-service.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiProdService implements ApiServiceService {
 
-  constructor() { }
+  baseURL = "http://127.0.0.1:3000";
 
-  sendVoti(voti: any[]) {
-    throw new Error('Method sendVoti Prod not implemented.');
+  constructor(private http: HttpClient) { }
+
+  sendVoti(voti: Voto[]): Observable<HTTPBasicResponse> {
+    return this.http.post<HTTPBasicResponse>(this.baseURL + "/voti", voti);
   }
 
-  getVoti(): Observable<any[]> {
-    throw new Error('Method getVoti Prod not implemented.');
+  getVoti(): Observable<Voto[]> {
+    return this.http.get<Voto[]>(this.baseURL + "/voti");
   }
 }

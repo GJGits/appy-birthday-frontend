@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HTTPBasicResponse } from 'src/app/interfaces/http-responses/http-basic-response';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { LogInService } from 'src/app/services/log-in.service';
 
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit {
     for (let i = 0; i < this.utentiSelezionatiPerVoto.length; i++) {
       voti.push({ name: this.utentiSelezionatiPerVoto[i], game: this.game, score: 1 });
     }
-    this.apiService.sendVoti(voti).subscribe((data: any[]) => {
+    this.apiService.sendVoti(voti).subscribe((data: HTTPBasicResponse) => {
       this.utentiSelezionatiPerVoto = [];
       this.refreshVoti();
       this.votoAbilitato = false;
