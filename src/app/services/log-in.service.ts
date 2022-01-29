@@ -11,6 +11,15 @@ const credenziali: Crendenziali[] = [
   {name: "donato", password: "b" , imgPath: "../../assets/marco_serata.jpg", brain: 0, drink: 0, cards: 5}
 ]
 
+const userImagePath = new Map<string,string>([
+  ["nachos",    "../../assets/marco_serata.jpg"],
+  ["jessica",   "../../assets/marco_serata.jpg"],
+  ["francesca", "../../assets/marco_serata.jpg"],
+  ["federico",  "../../assets/marco_serata.jpg"],
+  ["alessia",   "../../assets/marco_serata.jpg"],
+  ["donato",    "../../assets/marco_serata.jpg"]
+]);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +30,14 @@ export class LogInService {
   isLoggedIn = false;
   nomeLoggato = "";
   credenziali$ = new BehaviorSubject<any[]>(credenziali);
+
+  getLoggedUsername() {
+    return this.nomeLoggato;
+  }
+
+  getUserImagePath(userName: string) {
+    return userImagePath.get(userName);
+  }
 
   isUserLoggedIn() {
     return this.isLoggedIn;
