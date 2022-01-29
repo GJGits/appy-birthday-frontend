@@ -1,0 +1,25 @@
+<div class="container text-center mt-5">
+    <p>Le regole sono molto semplici, ogni utente pu&ograve; votare tutti gli utenti tranne se stesso. In seguito ad
+        ogni voto l'utente dovr&agrave; aspettare 30 secondi prima di poter votare nuovamente.
+        Per selezionare un utente da votare cliccare sulla sua immagine, per annullare il voto ricliccare. Il voto
+        &egrave; annullabile solo prima di votare.
+        Che vinca il migliore.
+    </p>
+</div>
+
+<div class="container" class="row mt-5">
+    <div *ngFor="let voto of (punteggi$ | async)" class="text-center col-4">
+        <img [src]="getUserImage(voto.name)" alt="" srcset="" width="50" height="50" class="pic"
+            (click)="toggleVoto(voto.name)" [ngClass]="{'selected-game': isUtenteSelezionato(voto.name)}">
+        <div>
+            <p>{{voto.name + " " + voto.score}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="d-grid gap-2">
+        <button (click)="onVota()" class="btn btn-primary" type="button"
+            [attr.disabled]="votoAbilitato? null : true">Vota</button>
+    </div>
+</div>

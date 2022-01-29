@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Partecipante } from 'src/app/interfaces/partecipanti/partecipante';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 import { LogInService } from 'src/app/services/log-in.service';
 
 @Component({
@@ -15,10 +17,10 @@ export class LoginComponent implements OnInit {
   passwordError: string = '';
   password: string = '';
 
-  credenziali: Observable<any[]>;
+  partecipanti: Observable<Partecipante[]>;
 
-  constructor(private loginService: LogInService, private router: Router) {
-    this.credenziali = loginService.getCredenziali();
+  constructor(private loginService: LogInService, private router: Router, private apiService: ApiServiceService) {
+    this.partecipanti = this.apiService.getPartecipanti();
   }
 
   ngOnInit(): void {

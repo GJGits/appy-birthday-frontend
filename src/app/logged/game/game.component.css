@@ -1,0 +1,7 @@
+.selected-game {
+    border-radius: 50%;
+    border-color: #0b5ed7;
+    border-width: 3px;
+    border-style: solid;
+    padding: 4px;
+}
