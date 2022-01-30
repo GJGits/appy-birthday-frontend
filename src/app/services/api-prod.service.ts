@@ -16,6 +16,10 @@ export class ApiProdService implements ApiServiceService {
 
   constructor(private http: HttpClient) { }
   
+  getGameNames(): Observable<string[]> {
+    return this.http.get<string[]>(this.baseURL + "/games");
+  }
+  
   getPartecipanti(): Observable<Partecipante[]> {
     return this.http.get<Partecipante[]>(this.baseURL + "/partecipanti");
   }

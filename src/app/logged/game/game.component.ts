@@ -3,6 +3,7 @@ import { map, Observable } from 'rxjs';
 import { HTTPBasicResponse } from 'src/app/interfaces/http-responses/http-basic-response';
 import { Voto } from 'src/app/interfaces/punteggi/voto';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+import { GameService } from 'src/app/services/game.service';
 import { LogInService } from 'src/app/services/log-in.service';
 
 @Component({
@@ -16,12 +17,14 @@ export class GameComponent implements OnInit {
 
   punteggi$: Observable<Voto[]> | undefined;
   voti = new Map<string, Voto>([]);
-  votoAbilitato = true;
+  votoAbilitato$: Observable<boolean> | undefined;
 
-  constructor(private apiService: ApiServiceService, private loginService: LogInService) { }
+  constructor(private gameService: GameService, private apiService: ApiServiceService, private loginService: LogInService) { 
+  }
 
   ngOnInit(): void {
     this.punteggi$ = this.apiService.getPunteggi(this.gameName);
+    this.votoAbilitato$ = this.gameService.getAbilitazione(this.gameName);
   }
 
   getUserImage(userName: string) {
@@ -44,12 +47,9 @@ export class GameComponent implements OnInit {
   }
 
   onVota() {
-
-    this.apiService.sendVoti(Array.from(this.voti.values())).subscribe((response: HTTPBasicResponse) => {
+    this.gameService.sendVoti(this.gameName, Array.from(this.voti.values())).subscribe((response: HTTPBasicResponse) => {
       this.voti.clear();
-      this.votoAbilitato = false;
-      setTimeout(() => { this.votoAbilitato = true; }, 30000);
-      this.punteggi$ = this.apiService.getPunteggi(this.gameName);
+      this.punteggi$ = this.gameService.getPunteggi(this.gameName);
     });
 
   }

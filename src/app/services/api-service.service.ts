@@ -9,4 +9,5 @@ export abstract class ApiServiceService {
   abstract getPartecipanti(): Observable<Partecipante[]>;
   abstract sendVoti(voti: Voto[]): Observable<HTTPBasicResponse>;
   abstract getPunteggi(game: string): Observable<Voto[]>;
+  abstract getGameNames(): Observable<string[]>;
 }
