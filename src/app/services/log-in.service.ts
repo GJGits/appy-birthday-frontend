@@ -29,7 +29,6 @@ export class LogInService {
 
   isLoggedIn = false;
   nomeLoggato = "";
-  //credenziali$ = new BehaviorSubject<any[]>(credenziali);
 
   getLoggedUsername() {
     return this.nomeLoggato;
