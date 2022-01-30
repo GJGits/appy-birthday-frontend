@@ -40,7 +40,17 @@ export class ApiMockService implements ApiServiceService {
     {name: "donato", imgPath: "../../assets/marco_serata.jpg"}
   ];
 
+  baseDatiGameNames: string[] = [
+    "brain",
+    "drink",
+    "cards"
+  ];
+
   constructor() { }
+  
+  getGameNames(): Observable<string[]> {
+    return of(this.baseDatiGameNames);
+  }
   
   sendVoti(voti: Voto[]): Observable<HTTPBasicResponse> {
     for (let i = 0; i < voti.length; i++) {
