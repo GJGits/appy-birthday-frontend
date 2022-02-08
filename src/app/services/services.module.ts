@@ -23,6 +23,7 @@ export function apiFactory(httpClient: HttpClient): ApiServiceService {
   providers: [{
     provide: ApiServiceService,
     useFactory: apiFactory,
+    deps: [HttpClient]
   }]
 })
 export class ServicesModule { }
