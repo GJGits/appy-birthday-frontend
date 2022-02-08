@@ -1,6 +1,6 @@
 <div class="container" class="row mt-5">
     <div *ngFor="let partecipante of partecipanti" class="text-center col-4">
-      <img [src]="partecipante.imgPath" alt="" srcset="" width="50" height="50" class="pic">
+      <img [src]="getUserImage(partecipante.name)" alt="" srcset="" width="50" height="50" class="pic">
       <div>
         <p>{{partecipante.name}}</p>
       </div>
