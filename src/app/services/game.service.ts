@@ -37,7 +37,8 @@ export class GameService {
 
   schedulaAbilitazioneVotoGioco(gameName: string) {
     let gameSubject = this.gameVoteStatus.get(gameName);
-    let delayedObservable = gameSubject?.pipe(delay(30000));
+    let timeToWait = (Math.floor(Math.random() * (120 - 30 + 1) + 30)) * 1000;
+    let delayedObservable = gameSubject?.pipe(delay(timeToWait));
     delayedObservable?.subscribe(() => {gameSubject?.next(true)});
     
   }
