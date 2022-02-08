@@ -32,12 +32,12 @@ export class ApiMockService implements ApiServiceService {
   ];
 
   baseDatiPartecipanti: Partecipante[] = [
-    {name: "nachos", imgPath: "../../assets/marco_serata.jpg"},
-    {name: "jessica", imgPath: "../../assets/marco_serata.jpg"},
-    {name: "francesca", imgPath: "../../assets/marco_serata.jpg"},
-    {name: "federico", imgPath: "../../assets/marco_serata.jpg"},
-    {name: "alessia", imgPath: "../../assets/marco_serata.jpg"},
-    {name: "donato", imgPath: "../../assets/marco_serata.jpg"}
+    {name: "nachos"},
+    {name: "jessica"},
+    {name: "francesca"},
+    {name: "federico"},
+    {name: "alessia"},
+    {name: "donato"}
   ];
 
   baseDatiGameNames: string[] = [
