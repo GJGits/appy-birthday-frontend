@@ -13,6 +13,12 @@ export class GameService {
   
   private gameVoteStatus = new Map<string, BehaviorSubject<boolean>>();
 
+  private regoleGioco = new Map<string, string>([
+    ["brain", "regola1"],
+    ["drink", "regola2"],
+    ["cards", "regola3"],
+  ]);
+
   constructor(private apiService: ApiServiceService) { 
     this.apiService.getGameNames().subscribe((gameNames: string[]) => {
       gameNames.forEach((gameName) => {
@@ -45,6 +51,10 @@ export class GameService {
 
   getAbilitazione(gameName: string): Observable<boolean> | undefined{
     return this.gameVoteStatus.get(gameName)?.asObservable();
+  }
+
+  getRegoleGioco(game: string): string | undefined {
+    return this.regoleGioco.get(game);
   }
 
 }
