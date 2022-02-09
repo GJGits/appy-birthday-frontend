@@ -1,10 +1,5 @@
-<div class="container text-center mt-5">
-    <p>Le regole sono molto semplici, ogni utente pu&ograve; votare tutti gli utenti tranne se stesso. In seguito ad
-        ogni voto l'utente dovr&agrave; aspettare 30 secondi prima di poter votare nuovamente.
-        Per selezionare un utente da votare cliccare sulla sua immagine, per annullare il voto ricliccare. Il voto
-        &egrave; annullabile solo prima di votare.
-        Che vinca il migliore.
-    </p>
+<div class="container text-center">
+    <h3>Classifica</h3>
 </div>
 
 <div class="container" class="row mt-5">
@@ -21,5 +16,16 @@
     <div class="d-grid gap-2">
         <button (click)="onVota()" class="btn btn-primary" type="button"
             [attr.disabled]="(votoAbilitato$ | async)? null : true">Vota</button>
+    </div>
+</div>
+
+<div class="container text-center mt-3">
+    <p class="text-primary" (click)="showVotoInfo()">Come si vota?</p>
+</div>
+
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+        <b>Regole gioco: </b>
+        <p>{{regoleGioco}}</p>
     </div>
 </div>
