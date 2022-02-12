@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HTTPBasicResponse } from '../interfaces/http-responses/http-basic-response';
 import { Partecipante } from '../interfaces/partecipanti/partecipante';
+import { Game } from '../interfaces/punteggi/game';
 import { Voto } from '../interfaces/punteggi/voto';
 import { ApiServiceService } from './api-service.service';
 
@@ -16,8 +17,8 @@ export class ApiProdService implements ApiServiceService {
 
   constructor(private http: HttpClient) { }
   
-  getGameNames(): Observable<string[]> {
-    return this.http.get<string[]>(this.baseURL + "/games");
+  getGameNames(): Observable<Game[]> {
+    return this.http.get<Game[]>(this.baseURL + "/games");
   }
   
   getPartecipanti(): Observable<Partecipante[]> {

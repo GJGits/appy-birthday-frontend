@@ -4,16 +4,18 @@ import { Crendenziali } from './credenziali';
 
 const credenziali: Crendenziali[] = [
   {name: "nachos", password: "umegghiu"},
-  {name: "jessica", password: "a"},
-  {name: "francesca", password: "a"},
-  {name: "federico", password: "a"},
-  {name: "alessia", password: "b" },
-  {name: "donato", password: "b"}
+  {name: "jessss", password: "VINCOIOSFIGATI80"},
+  {name: "Framas", password: "Francy"},
+  {name: "Schifhofedo", password: "Tananai99"},
+  {name: "piccirai", password: "Barcellonanondispagna" },
+  {name: "piccimediaset", password: "compleannoinritardo"},
+  {name: "Giulia Rubik", password: "frassino85"},
+  {name: "Pizzibarbaro", password: "Dumini"}
 ]
 
 const userImagePath = new Map<string,string>([
   ["nachos",    "../../assets/marco_serata.jpg"],
-  ["jess",   "../../assets/jessica.jpeg"],
+  ["jessss",   "../../assets/jessica.jpeg"],
   ["Framas", "../../assets/francesca.jpeg"],
   ["Schifhofedo",  "../../assets/federico.jpeg"],
   ["piccirai",   "../../assets/alessia.jpeg"],

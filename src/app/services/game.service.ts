@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, delay, Observable, Subject } from 'rxjs';
 import { HTTPBasicResponse } from '../interfaces/http-responses/http-basic-response';
+import { Game } from '../interfaces/punteggi/game';
 import { Voto } from '../interfaces/punteggi/voto';
 import { ApiServiceService } from './api-service.service';
 
@@ -14,15 +15,17 @@ export class GameService {
   private gameVoteStatus = new Map<string, BehaviorSubject<boolean>>();
 
   private regoleGioco = new Map<string, string>([
-    ["brain", "regola1"],
-    ["drink", "regola2"],
-    ["cards", "regola3"],
+    ["brain", "Leggi la domanda che trovi sulla carta, vota chiunque risponda correttamente."],
+    ["drink", "Assicurati di vederci ancora bene poi vota chiunque vedi bere."],
+    ["cards", "Vota chiunque vinca una mano ad un qualsiasi gioco con le carte, la sua fortuna va certificata."],
+    ["dance", "Vota tutti i partecipanti appena gli vedi fare una crazy move."],
+    ["style", "Ogni qual volta guarderai un partecipante e ti dimenticherai di che anno è sai cosa fare."]
   ]);
 
   constructor(private apiService: ApiServiceService) { 
-    this.apiService.getGameNames().subscribe((gameNames: string[]) => {
-      gameNames.forEach((gameName) => {
-        this.gameVoteStatus.set(gameName, new BehaviorSubject<boolean>(true));
+    this.apiService.getGameNames().subscribe((games: Game[]) => {
+      games.forEach((game) => {
+        this.gameVoteStatus.set(game.name, new BehaviorSubject<boolean>(true));
       })
     });
   }
