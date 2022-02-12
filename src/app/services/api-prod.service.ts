@@ -12,7 +12,7 @@ import { ApiServiceService } from './api-service.service';
 })
 export class ApiProdService implements ApiServiceService {
 
-  baseURL = "http://127.0.0.1:3000";
+  baseURL = "http://192.168.1.210:3000";
 
   constructor(private http: HttpClient) { }
   
