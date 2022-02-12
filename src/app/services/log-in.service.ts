@@ -13,11 +13,13 @@ const credenziali: Crendenziali[] = [
 
 const userImagePath = new Map<string,string>([
   ["nachos",    "../../assets/marco_serata.jpg"],
-  ["jessica",   "../../assets/marco_serata.jpg"],
-  ["francesca", "../../assets/marco_serata.jpg"],
-  ["federico",  "../../assets/marco_serata.jpg"],
-  ["alessia",   "../../assets/marco_serata.jpg"],
-  ["donato",    "../../assets/marco_serata.jpg"]
+  ["jess",   "../../assets/jessica.jpeg"],
+  ["Framas", "../../assets/francesca.jpeg"],
+  ["Schifhofedo",  "../../assets/federico.jpeg"],
+  ["piccirai",   "../../assets/alessia.jpeg"],
+  ["piccimediaset",    "../../assets/donato.jpeg"],
+  ["Giulia Rubik",  "../../assets/giulia.jpeg"],
+  ["Pizzibarbaro", "../../assets/pizzibarbaro.png"]
 ]);
 
 @Injectable({
